@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     // Variable to check if the game is active
     var gameIsActive = true
     
+    @IBOutlet weak var playerWonLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,16 +51,65 @@ class ViewController: UIViewController {
         for combination in winningCombinations {
             if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
                 
+                // Someone has won the game and the game is not active
                 gameIsActive = false
                 
+                // If the value in gameState is 1, player 1 won. Else, player 2 won
                 if gameState[combination[0]] == 1 {
                     // Cross won, player 1
-                    print("Player 1 won")
+                    playerWonLabel.text = "Player 1 won"
                 } else {
                     // Circle won, player 2
-                    print("Player 2 won")
+                    playerWonLabel.text = "Player 2 won"
                 }
+                
+                // When someone has won the game, one can see who has won and choose to play again
+                playAgainButton.isHidden = false
+                playerWonLabel.isHidden = false
             }
+        }
+        
+        // The game is set to not active
+        gameIsActive = false
+        
+        // If there is still an empty box, the game is still active
+        for i in gameState {
+            if i == 0 {
+                gameIsActive = true
+                break
+            }
+        }
+        
+        // If the game is not active, and noone has won, it means that is is tie and one can choose to play the game again.
+        if gameIsActive == false {
+            playerWonLabel.text = "It was a draw.."
+            playerWonLabel.isHidden = false
+            playAgainButton.isHidden = false
+        }
+    }
+    
+    @IBOutlet weak var playAgainButton: UIButton!
+    
+    // Function for the playAgainButton
+    @IBAction func playAgain(_ sender: UIButton) {
+        
+        // gameState is changed to original zeros
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        
+        // Game is active again
+        gameIsActive = true
+        
+        // The activePlayer is set to player 1
+        activePlayer = 1
+        
+        // And the playAgainButton is not visible
+        playAgainButton.isHidden = true
+        playerWonLabel.isHidden = true
+        
+        // The images are removed from the image views to clear the board
+        for i in 1...9 {
+            let button = view.viewWithTag(i) as! UIButton
+            button.setImage(nil, for: UIControl.State())
         }
     }
 }
