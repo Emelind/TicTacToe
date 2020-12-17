@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L9y-kn-Ldg">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,23 +8,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Start Page View Controller-->
+        <scene sceneID="xRD-9v-NH3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="L9y-kn-Ldg" userLabel="Start Page View Controller" customClass="StartGameViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W7Q-Gf-hOe">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJD-tl-dYO" userLabel="Player 1 Text Field">
+                                <rect key="frame" x="115" y="224" width="160" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="442-ON-bMa"/>
+                                    <constraint firstAttribute="width" constant="160" id="GmM-Dk-h2o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3C-Bsm" userLabel="Player 2 Text Field">
+                                <rect key="frame" x="115" y="344" width="160" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="7AE-2D-kKf"/>
+                                    <constraint firstAttribute="height" constant="40" id="f3m-oQ-R8m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzr-b6-etc" userLabel="Start Game Button">
+                                <rect key="frame" x="76" y="531" width="238" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="START GAME"/>
+                                <connections>
+                                    <action selector="startGame:" destination="L9y-kn-Ldg" eventType="touchUpInside" id="OVP-Qf-Ysm"/>
+                                    <action selector="startGame:" destination="JSd-1J-bHU" eventType="touchUpInside" id="asg-LQ-O2l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Sr-ou-iNt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gAr-3C-Bsm" firstAttribute="top" secondItem="uJD-tl-dYO" secondAttribute="bottom" constant="80" id="JAN-yU-owy"/>
+                            <constraint firstItem="uJD-tl-dYO" firstAttribute="centerX" secondItem="W7Q-Gf-hOe" secondAttribute="centerX" id="Yvu-3e-sts"/>
+                            <constraint firstItem="gAr-3C-Bsm" firstAttribute="centerX" secondItem="W7Q-Gf-hOe" secondAttribute="centerX" id="oUh-kW-BQB"/>
+                            <constraint firstItem="uJD-tl-dYO" firstAttribute="top" secondItem="3Sr-ou-iNt" secondAttribute="top" constant="180" id="qT3-Ik-tVj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueToGame" id="sIN-se-2O4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aS0-EI-CLJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JSd-1J-bHU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="112.30769230769231" y="86.729857819905206"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Game View Controller" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board" translatesAutoresizingMaskIntoConstraints="NO" id="L5d-og-TPZ">
-                                <rect key="frame" x="5" y="3069" width="320" height="320"/>
+                                <rect key="frame" x="35" y="356" width="320" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="VMo-t4-Mzg"/>
                                     <constraint firstAttribute="height" constant="320" id="yg6-0a-qJm"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUv-pB-rTT" userLabel="Button7">
-                                <rect key="frame" x="45" y="640" width="80" height="80"/>
+                                <rect key="frame" x="45" y="586" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dAZ-7v-ige"/>
                                     <constraint firstAttribute="height" constant="80" id="nTz-Ro-07Y"/>
@@ -35,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkQ-8G-s4s" userLabel="Button5">
-                                <rect key="frame" x="155" y="530" width="80" height="80"/>
+                                <rect key="frame" x="155" y="476" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="2Ye-x1-xkq"/>
                                     <constraint firstAttribute="width" constant="80" id="yii-2v-z3f"/>
@@ -46,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHv-s9-ZRc" userLabel="Button8">
-                                <rect key="frame" x="155" y="640" width="80" height="80"/>
+                                <rect key="frame" x="155" y="586" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Iao-b0-e7C"/>
                                     <constraint firstAttribute="width" constant="80" id="y0i-aG-oVC"/>
@@ -57,7 +112,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvH-Qs-Auc" userLabel="Button6">
-                                <rect key="frame" x="265" y="530" width="80" height="80"/>
+                                <rect key="frame" x="265" y="476" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="fzs-Ps-a4m"/>
                                     <constraint firstAttribute="width" constant="80" id="x59-Au-EpT"/>
@@ -68,7 +123,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90c-NS-8VD" userLabel="Button4">
-                                <rect key="frame" x="45" y="530" width="80" height="80"/>
+                                <rect key="frame" x="45" y="476" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="7G2-Ib-XMH"/>
                                     <constraint firstAttribute="width" constant="80" id="RP3-2L-e7e"/>
@@ -79,7 +134,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4y-vn-S2e" userLabel="Button2">
-                                <rect key="frame" x="155" y="420" width="80" height="80"/>
+                                <rect key="frame" x="155" y="366" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4x2-AF-hj1"/>
                                     <constraint firstAttribute="height" constant="80" id="6oR-z4-x0K"/>
@@ -92,7 +147,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-r5-R7n" userLabel="Play Again Button">
-                                <rect key="frame" x="40" y="154" width="110" height="42"/>
+                                <rect key="frame" x="40" y="110" width="110" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Play again"/>
                                 <connections>
@@ -100,13 +155,13 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player X won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-Vs-xbg" userLabel="Player Won Label">
-                                <rect key="frame" x="40" y="84" width="138.66666666666666" height="30"/>
+                                <rect key="frame" x="40" y="40" width="138.66666666666666" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMc-hv-Dwp" userLabel="Button1">
-                                <rect key="frame" x="45" y="420" width="80" height="80"/>
+                                <rect key="frame" x="45" y="366" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="C4d-X4-tmA"/>
                                     <constraint firstAttribute="width" constant="80" id="wA8-kv-ASo"/>
@@ -117,7 +172,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqD-7t-fgc" userLabel="Button9">
-                                <rect key="frame" x="265" y="640" width="80" height="80"/>
+                                <rect key="frame" x="265" y="586" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="7pe-7y-bH9"/>
                                     <constraint firstAttribute="width" constant="80" id="Q1M-6a-qql"/>
@@ -128,7 +183,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-XU-zBj" userLabel="Button3">
-                                <rect key="frame" x="265" y="420" width="80" height="80"/>
+                                <rect key="frame" x="265" y="366" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="hb5-64-lAY"/>
                                     <constraint firstAttribute="width" constant="80" id="tEr-yl-Pow"/>
@@ -168,6 +223,7 @@
                             <constraint firstItem="bHv-s9-ZRc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y3e-8V-Pz6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Y1x-5a-O7J"/>
                     <connections>
                         <outlet property="playAgainButton" destination="jMD-r5-R7n" id="vLm-h0-8jl"/>
                         <outlet property="playerWonLabel" destination="XXC-Vs-xbg" id="BDr-mC-c6Z"/>
@@ -175,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.84615384615381" y="68.957345971563981"/>
+            <point key="canvasLocation" x="968" y="97"/>
         </scene>
     </scenes>
     <resources>

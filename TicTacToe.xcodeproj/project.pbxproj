@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985B1BA3258B655B0047DC20 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B1BA2258B655B0047DC20 /* StartGameViewController.swift */; };
 		985ED92C2588E42E00595F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED92B2588E42E00595F8B /* AppDelegate.swift */; };
 		985ED92E2588E42E00595F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED92D2588E42E00595F8B /* SceneDelegate.swift */; };
 		985ED9302588E42E00595F8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED92F2588E42E00595F8B /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		985B1BA2258B655B0047DC20 /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		985ED9282588E42E00595F8B /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ED92B2588E42E00595F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		985ED92D2588E42E00595F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				985ED9342588E43400595F8B /* Assets.xcassets */,
 				985ED9362588E43400595F8B /* LaunchScreen.storyboard */,
 				985ED9392588E43400595F8B /* Info.plist */,
+				985B1BA2258B655B0047DC20 /* StartGameViewController.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				985ED9302588E42E00595F8B /* ViewController.swift in Sources */,
 				985ED92C2588E42E00595F8B /* AppDelegate.swift in Sources */,
 				985ED92E2588E42E00595F8B /* SceneDelegate.swift in Sources */,
+				985B1BA3258B655B0047DC20 /* StartGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
