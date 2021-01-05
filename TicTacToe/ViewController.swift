@@ -9,6 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Store name of Player 1
+    var playerOne: String?
+    
+    //Store name of Player 2
+    var playerTwo: String?
+    
+    // Outlet for Players Turn Label
+    @IBOutlet weak var playersTurnLabel: UILabel!
+    
     // Keeps track of active player, 1 or 2
     var activePlayer = 1
     
@@ -25,7 +34,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Displays playerOnes name
+        playersTurnLabel.text = playerOne! + ", it is your turn!"
+        
     }
     
     // 9 image views connected to function action
@@ -40,10 +52,17 @@ class ViewController: UIViewController {
             //Sets the player's image in the chosen box
             if activePlayer == 1 {
                 sender.setImage(UIImage(named: "cross"), for: UIControl.State())
+                
+                //Changes the activePlayer to playerTwo, and displays the name
                 activePlayer = 2
+                playersTurnLabel.text = playerTwo! + ", it is your turn!"
+            
             } else {
                 sender.setImage(UIImage(named: "circle"), for: UIControl.State())
+                
+                //Changes the activePlayer to playerOne, and displays the name
                 activePlayer = 1
+                playersTurnLabel.text = playerOne! + ", it is your turn!"
             }
         }
         
@@ -54,13 +73,16 @@ class ViewController: UIViewController {
                 // Someone has won the game and the game is not active
                 gameIsActive = false
                 
+                // playersTurnLabel is hidden
+                playersTurnLabel.isHidden = true
+                
                 // If the value in gameState is 1, player 1 won. Else, player 2 won
                 if gameState[combination[0]] == 1 {
                     // Cross won, player 1
-                    playerWonLabel.text = "Player 1 won"
+                    playerWonLabel.text = playerOne! + " won"
                 } else {
                     // Circle won, player 2
-                    playerWonLabel.text = "Player 2 won"
+                    playerWonLabel.text = playerTwo! + " won"
                 }
                 
                 // When someone has won the game, one can see who has won and choose to play again
@@ -85,6 +107,7 @@ class ViewController: UIViewController {
             playerWonLabel.text = "It was a draw.."
             playerWonLabel.isHidden = false
             playAgainButton.isHidden = false
+            playersTurnLabel.isHidden = true
         }
     }
     
@@ -101,6 +124,9 @@ class ViewController: UIViewController {
         
         // The activePlayer is set to player 1
         activePlayer = 1
+        
+        playersTurnLabel.isHidden = false
+        playersTurnLabel.text = playerOne! + ", it is your turn!"
         
         // And the playAgainButton is not visible
         playAgainButton.isHidden = true
