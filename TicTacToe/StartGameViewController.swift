@@ -9,6 +9,8 @@ import UIKit
 
 class StartGameViewController: UIViewController {
     
+    @IBOutlet weak var highScoreTableView: UITableView!
+    
     // Id of segue stored in variable segueToGame
     let segueToGame = "segueToGame"
     

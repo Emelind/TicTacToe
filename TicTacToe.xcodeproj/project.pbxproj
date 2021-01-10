@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98194B6E25AB430B00B6A37E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98194B6D25AB430B00B6A37E /* Player.swift */; };
+		98194B7325AB441800B6A37E /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98194B7225AB441800B6A37E /* Players.swift */; };
+		98194B7925AB4B4000B6A37E /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98194B7725AB4B4000B6A37E /* HighScoreTableViewCell.swift */; };
+		98194B7A25AB4B4000B6A37E /* HighScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98194B7825AB4B4000B6A37E /* HighScoreTableViewCell.xib */; };
 		985B1BA3258B655B0047DC20 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B1BA2258B655B0047DC20 /* StartGameViewController.swift */; };
 		985ED92C2588E42E00595F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED92B2588E42E00595F8B /* AppDelegate.swift */; };
 		985ED92E2588E42E00595F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED92D2588E42E00595F8B /* SceneDelegate.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98194B6D25AB430B00B6A37E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		98194B7225AB441800B6A37E /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		98194B7725AB4B4000B6A37E /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
+		98194B7825AB4B4000B6A37E /* HighScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreTableViewCell.xib; sourceTree = "<group>"; };
 		985B1BA2258B655B0047DC20 /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		985ED9282588E42E00595F8B /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ED92B2588E42E00595F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 				985ED9362588E43400595F8B /* LaunchScreen.storyboard */,
 				985ED9392588E43400595F8B /* Info.plist */,
 				985B1BA2258B655B0047DC20 /* StartGameViewController.swift */,
+				98194B6D25AB430B00B6A37E /* Player.swift */,
+				98194B7225AB441800B6A37E /* Players.swift */,
+				98194B7725AB4B4000B6A37E /* HighScoreTableViewCell.swift */,
+				98194B7825AB4B4000B6A37E /* HighScoreTableViewCell.xib */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -236,6 +248,7 @@
 			files = (
 				985ED9382588E43400595F8B /* LaunchScreen.storyboard in Resources */,
 				985ED9352588E43400595F8B /* Assets.xcassets in Resources */,
+				98194B7A25AB4B4000B6A37E /* HighScoreTableViewCell.xib in Resources */,
 				985ED9332588E42E00595F8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,9 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98194B7325AB441800B6A37E /* Players.swift in Sources */,
 				985ED9302588E42E00595F8B /* ViewController.swift in Sources */,
 				985ED92C2588E42E00595F8B /* AppDelegate.swift in Sources */,
+				98194B7925AB4B4000B6A37E /* HighScoreTableViewCell.swift in Sources */,
 				985ED92E2588E42E00595F8B /* SceneDelegate.swift in Sources */,
+				98194B6E25AB430B00B6A37E /* Player.swift in Sources */,
 				985B1BA3258B655B0047DC20 /* StartGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
