@@ -37,8 +37,18 @@ class StartGameViewController: UIViewController {
         // Check that the segue is the intended segue
         if segue.identifier == segueToGame {
             let destinationVC = segue.destination as! ViewController
-            destinationVC.playerOne = playerOneTextField.text
-            destinationVC.playerTwo = playerTwoTextField.text
+            
+            //If the text fields are empty, the names are replaced with Player One and Player Two
+            if playerOneTextField.text == "" {
+                destinationVC.playerOne = "Player One"
+            } else {
+                destinationVC.playerOne = playerOneTextField.text
+            }
+            if playerTwoTextField.text == "" {
+                destinationVC.playerTwo = "Player Two"
+            } else {
+                destinationVC.playerTwo = playerTwoTextField.text
+            }
         }
     }
     
