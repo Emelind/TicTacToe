@@ -7,7 +7,25 @@
 
 import UIKit
 
-class StartGameViewController: UIViewController {
+class StartGameViewController: UIViewController, UITableViewDataSource {
+    
+    let players = Players()
+    let highScoreCellId = "highScoreCellId"
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return players.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: highScoreCellId, for: indexPath) as! HighScoreTableViewCell
+        
+        let player = players.get(atIndex: indexPath.row)
+        cell.nameLabel.text = player.name
+        cell.winsLabel.text = String(player.wins)
+        
+        return cell
+    }
+    
     
     @IBOutlet weak var highScoreTableView: UITableView!
     
@@ -23,6 +41,11 @@ class StartGameViewController: UIViewController {
     override func viewDidLoad() {
         super .viewDidLoad()
         
+        highScoreTableView.dataSource = self
+        
+        let highScoreCell = UINib(nibName: "HighScoreTableViewCell", bundle: nil)
+        
+        highScoreTableView.register(highScoreCell, forCellReuseIdentifier: highScoreCellId)
     }
     
     // Action connected to Start Game Button

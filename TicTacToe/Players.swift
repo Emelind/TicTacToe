@@ -13,6 +13,22 @@ class Players {
     
     init() {
         list = [Player]()
+        
+        addMockData()
+    }
+    
+    var count : Int {
+        return list.count
+    }
+    
+    func get(atIndex: Int) -> Player {
+        return list[atIndex]
+    }
+    
+    private func addMockData() {
+        list.append(Player(name: "Emelie", wins: 3))
+        list.append(Player(name: "Micke", wins: 2))
+        list.append(Player(name: "Soffan", wins: 1))
     }
     
 }

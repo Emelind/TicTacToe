@@ -17,23 +17,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-VK-CfW" userLabel="Name Label">
-                        <rect key="frame" x="10" y="11.5" width="45" height="21"/>
+                        <rect key="frame" x="10" y="10" width="45" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-md-NPg" userLabel="Wins Label">
-                        <rect key="frame" x="298" y="11.5" width="12" height="21"/>
+                        <rect key="frame" x="298" y="10" width="12" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="EXl-VK-CfW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Huc-3Y-4gH"/>
-                    <constraint firstItem="Gf8-md-NPg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IIf-mM-yW0"/>
-                    <constraint firstAttribute="trailing" secondItem="Gf8-md-NPg" secondAttribute="trailing" constant="10" id="nRU-Zk-FnW"/>
-                    <constraint firstItem="EXl-VK-CfW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qpw-IE-TAx"/>
+                    <constraint firstItem="EXl-VK-CfW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9A5-OZ-iS3"/>
+                    <constraint firstAttribute="bottom" secondItem="EXl-VK-CfW" secondAttribute="bottom" constant="10" id="LBF-gP-lsk"/>
+                    <constraint firstAttribute="bottom" secondItem="Gf8-md-NPg" secondAttribute="bottom" constant="10" id="l6p-Vd-bvZ"/>
+                    <constraint firstItem="EXl-VK-CfW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="m7W-aJ-cjb"/>
+                    <constraint firstItem="Gf8-md-NPg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qkU-9R-iyh"/>
+                    <constraint firstAttribute="trailing" secondItem="Gf8-md-NPg" secondAttribute="trailing" constant="10" id="tq1-0p-4oc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
