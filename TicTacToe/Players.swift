@@ -25,10 +25,13 @@ class Players {
         return list[atIndex]
     }
     
+    func add(player: Player) {
+        list.append(player)
+    }
+    
     private func addMockData() {
         list.append(Player(name: "Emelie", wins: 3))
         list.append(Player(name: "Micke", wins: 2))
-        list.append(Player(name: "Soffan", wins: 1))
     }
     
 }

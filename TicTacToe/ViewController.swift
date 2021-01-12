@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // TEST FÖR HIGHSCORE
+    var players = Players()
+    
     // Store name of Player 1
     var playerOne: String?
     
@@ -80,9 +83,40 @@ class ViewController: UIViewController {
                 if gameState[combination[0]] == 1 {
                     // Cross won, player 1
                     playerWonLabel.text = playerOne! + " won"
+                    
+                    var a = 0
+                    
+                    for player in players.list {
+                        a += 1
+                        if playerOne == player.name {
+                            player.addOneWin()
+                            print("\(player.name) + \(player.wins)")
+                            break
+                        }
+                        if a == players.list.count && playerOne != player.name {
+                            players.add(player: Player(name: playerOne!, wins: 1))
+                            // print("\(players.list[2].name)")
+                        }
+                    }
+                    
                 } else {
                     // Circle won, player 2
                     playerWonLabel.text = playerTwo! + " won"
+                    
+                    var b = 0
+                    
+                    for player in players.list {
+                        b += 1
+                        if playerTwo == player.name {
+                            player.addOneWin()
+                            print("\(player.name) + \(player.wins)")
+                            break
+                        }
+                        if b == players.list.count && playerTwo != player.name {
+                            players.add(player: Player(name: playerTwo!, wins: 1))
+                            // print("\(players.list[2].name)")
+                        }
+                    }
                 }
                 
                 // When someone has won the game, one can see who has won and choose to play again

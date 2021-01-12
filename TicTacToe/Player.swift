@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct Player {
+class Player {
     var name: String
-    var wins: Int
+    var wins: Int = 0
     
     init(name: String, wins: Int) {
         self.name = name
         self.wins = wins
+    }
+    
+    func addOneWin() {
+        wins += 1
     }
 }
