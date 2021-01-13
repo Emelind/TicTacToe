@@ -21,6 +21,24 @@ class ViewController: UIViewController {
     // Outlet for Players Turn Label
     @IBOutlet weak var playersTurnLabel: UILabel!
     
+    //Outlet for player one
+    @IBOutlet weak var playerOneLabel: UILabel!
+    
+    //Outlet for player two
+    @IBOutlet weak var playerTwoLabel: UILabel!
+    
+    //Outlet for player one score
+    @IBOutlet weak var playerOneScoreLabel: UILabel!
+    
+    //Outlet for player two score
+    @IBOutlet weak var playerTwoScoreLabel: UILabel!
+    
+    // Variable for player one score
+    var playerOneScore = 0
+    
+    // Variable for player two score
+    var playerTwoScore = 0
+    
     // Keeps track of active player, 1 or 2
     var activePlayer = 1
     
@@ -40,6 +58,11 @@ class ViewController: UIViewController {
         
         // Displays playerOnes name
         playersTurnLabel.text = playerOne! + ", it is your turn!"
+        
+        playerOneLabel.text = playerOne!
+        playerTwoLabel.text = playerTwo!
+        playerOneScoreLabel.text = String(playerOneScore)
+        playerTwoScoreLabel.text = String(playerTwoScore)
         
     }
     
@@ -84,6 +107,9 @@ class ViewController: UIViewController {
                     // Cross won, player 1
                     playerWonLabel.text = playerOne! + " won"
                     
+                    playerOneScore += 1
+                    playerOneScoreLabel.text = String(playerOneScore)
+                    
                     var a = 0
                     
                     for player in players.list {
@@ -95,13 +121,16 @@ class ViewController: UIViewController {
                         }
                         if a == players.list.count && playerOne != player.name {
                             players.add(player: Player(name: playerOne!, wins: 1))
-                            // print("\(players.list[2].name)")
+                            print(players.list.count)
                         }
                     }
                     
                 } else {
                     // Circle won, player 2
                     playerWonLabel.text = playerTwo! + " won"
+                    
+                    playerTwoScore += 1
+                    playerTwoScoreLabel.text = String(playerTwoScore)
                     
                     var b = 0
                     
@@ -114,7 +143,7 @@ class ViewController: UIViewController {
                         }
                         if b == players.list.count && playerTwo != player.name {
                             players.add(player: Player(name: playerTwo!, wins: 1))
-                            // print("\(players.list[2].name)")
+                            print(players.list.count)
                         }
                     }
                 }

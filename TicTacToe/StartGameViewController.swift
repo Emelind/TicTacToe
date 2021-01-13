@@ -9,7 +9,7 @@ import UIKit
 
 class StartGameViewController: UIViewController, UITableViewDataSource {
     
-    let players = Players()
+    var players = Players()
     let highScoreCellId = "highScoreCellId"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +46,7 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
         let highScoreCell = UINib(nibName: "HighScoreTableViewCell", bundle: nil)
         
         highScoreTableView.register(highScoreCell, forCellReuseIdentifier: highScoreCellId)
+        
     }
     
     // Action connected to Start Game Button
@@ -78,5 +79,8 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func unwindToStartView(segue: UIStoryboardSegue) {
+        highScoreTableView.reloadData()
+        print(self.players.count)
+        print(players.count)
     }
 }
