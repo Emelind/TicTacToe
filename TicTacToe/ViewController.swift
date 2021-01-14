@@ -65,104 +65,104 @@ class ViewController: UIViewController {
             if game.activePlayer == 1 {
                 sender.setImage(UIImage(named: "cross"), for: UIControl.State())
                 
+                // Changes the player to player two
                 game.changePlayer()
                 
-                if playerTwo != "CPU" {
-                    playersTurnLabel.text = playerTwo! + ", it is your turn!"
-                }
                 
-                var a = 0
-                
-                if playerTwo == "CPU" && game.activePlayer == 2 {
-                    cpuPossibilities.removeAll()
-                    for i in game.gameState {
-                        a += 1
-                        if i == 0 {
-                            cpuPossibilities.append(a)
-                            // LÄGG TILL OM LISTAN ÄR TOM ...
-                        }
-                    }
-                    let cpuRandomChoice = cpuPossibilities.randomElement()!
-                    game.gameState[cpuRandomChoice - 1] = 2
-                    let cpuChoiceButton = self.view.viewWithTag(cpuRandomChoice) as! UIButton
-                    cpuChoiceButton.setImage(UIImage(named: "circle"), for: UIControl.State())
-                    game.changePlayer()
-                }
-                
-            } else {
-                sender.setImage(UIImage(named: "circle"), for: UIControl.State())
-                
-                //Changes the activePlayer to playerOne, and displays the name
-                game.changePlayer()
-                playersTurnLabel.text = playerOne! + ", it is your turn!"
-            }
-        }
-        
-        // For each combination, this for loop gets the value from gameState and compares the value to the other values of the winning combo. E.g. the first combination is 0, 1, 2. First, it checks the value of gameState[0], then gameState[1], then gameState[2]. The second combo is 3, 4, 5. Then it is gameState[3], gameState[4] and gameState[5] that are compared. Etc.
-        for combination in game.winningCombinations {
-            if game.gameState[combination[0]] != 0 && game.gameState[combination[0]] == game.gameState[combination[1]] && game.gameState[combination[1]] == game.gameState[combination[2]] {
-                
-                // Someone has won the game and the game is not active
-                game.gameIsActive = false
-                
-                // playersTurnLabel is hidden
-                playersTurnLabel.isHidden = true
-                
-                // If the value in gameState is 1, player 1 won. Else, player 2 won
-                if game.gameState[combination[0]] == 1 {
-                    // Cross won, player 1
+                // Checks for winner
+                let winner = game.checkForWinner()
+                if winner != 0 {
+                    
+                    game.gameIsActive = false
+                    playersTurnLabel.isHidden = true
+                    playerWonLabel.isHidden = false
                     playerWonLabel.text = playerOne! + " won"
+                    playAgainButton.isHidden = false
                     
                     // Adds one to score
                     playerOneScore += 1
                     playerOneScoreLabel.text = String(playerOneScore)
                     
-                    /*
-                    // Test for high score
+                } else {
+                    
+                    // If player two is a real player, the name is displayed as "your turn"
+                    if playerTwo != "CPU" {
+                        playersTurnLabel.text = playerTwo! + ", it is your turn!"
+                    }
+                    
+                    // *************************
+                    // CPU PLAY
+                    
+                    // Variable to keep track of position in gameState (index 0 = 1, which equals tags on buttons)
                     var a = 0
                     
-                    for player in players.list {
-                        a += 1
-                        if playerOne == player.name {
-                            player.addOneWin()
-                            print("\(player.name) + \(player.wins)")
-                            break
+                    // Extra check to see if playerTwo is CPU, and that it is playerTwo's turn
+                    if playerTwo == "CPU" && game.activePlayer == 2 {
+                        
+                        // Empties list of possibile choices for CPU
+                        cpuPossibilities.removeAll()
+                        
+                        // Adds all possible choices from gameState to cpuPossibilities
+                        for i in game.gameState {
+                            a += 1
+                            if i == 0 {
+                                cpuPossibilities.append(a)
+                            }
                         }
-                        if a == players.list.count && playerOne != player.name {
-                            players.add(player: Player(name: playerOne!, wins: 1))
-                            print(players.list.count)
+                        
+                        // Extracts random number from list of possible choices
+                        let cpuRandomChoice = cpuPossibilities.randomElement()!
+                        
+                        // Changes the random choice to 2 in gameState
+                        game.gameState[cpuRandomChoice - 1] = 2
+                        
+                        // Changes the image of the random choice
+                        let cpuChoiceButton = self.view.viewWithTag(cpuRandomChoice) as! UIButton
+                        cpuChoiceButton.setImage(UIImage(named: "circle"), for: UIControl.State())
+                        
+                        // Changes the player to player one
+                        game.changePlayer()
+                        
+                    //*****************************
+                        
+                        // Check to see if player two (CPU) is a winner
+                        let winner = game.checkForWinner()
+                        if winner != 0 {
+                            game.gameIsActive = false
+                            playersTurnLabel.isHidden = true
+                            playerWonLabel.isHidden = false
+                            playerWonLabel.text = playerTwo! + " won"
+                            playAgainButton.isHidden = false
+                            
+                            // Adds one to score
+                            playerTwoScore += 1
+                            playerTwoScoreLabel.text = String(playerTwoScore)
                         }
-                    }*/
-                    
-                } else {
-                    // Circle won, player 2
+                    }
+                }
+            
+            // If activePlayer is not 1, it is player two's turn. Changes the image of button choice accordingly
+            } else {
+                sender.setImage(UIImage(named: "circle"), for: UIControl.State())
+                
+                //Changes the activePlayer to playerOne, and displays the name
+                game.changePlayer()
+                
+                //Checks if player two is a winner
+                let winner = game.checkForWinner()
+                if winner != 0 {
+                    game.gameIsActive = false
+                    playersTurnLabel.isHidden = true
                     playerWonLabel.text = playerTwo! + " won"
+                    
+                    playAgainButton.isHidden = false
+                    playerWonLabel.isHidden = false
                     
                     // Adds one to score
                     playerTwoScore += 1
                     playerTwoScoreLabel.text = String(playerTwoScore)
-                    
-                    /*
-                    // Test for high score
-                    var b = 0
-                    
-                    for player in players.list {
-                        b += 1
-                        if playerTwo == player.name {
-                            player.addOneWin()
-                            print("\(player.name) + \(player.wins)")
-                            break
-                        }
-                        if b == players.list.count && playerTwo != player.name {
-                            players.add(player: Player(name: playerTwo!, wins: 1))
-                            print(players.list.count)
-                        }
-                    }*/
                 }
-                
-                // When someone has won the game, one can see who has won and choose to play again
-                playAgainButton.isHidden = false
-                playerWonLabel.isHidden = false
+                playersTurnLabel.text = playerOne! + ", it is your turn!"
             }
         }
         
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
         }
         
         // If the game is not active, and noone has won, it means that is is tie and one can choose to play the game again.
-        if game.gameIsActive == false {
+        if game.gameIsActive == false && game.checkForWinner() == 0 {
             playerWonLabel.text = "It was a draw.."
             playerWonLabel.isHidden = false
             playAgainButton.isHidden = false
@@ -210,3 +210,37 @@ class ViewController: UIViewController {
     }
 }
 
+
+/*
+// Test for high score
+var a = 0
+
+for player in players.list {
+    a += 1
+    if playerOne == player.name {
+        player.addOneWin()
+        print("\(player.name) + \(player.wins)")
+        break
+    }
+    if a == players.list.count && playerOne != player.name {
+        players.add(player: Player(name: playerOne!, wins: 1))
+        print(players.list.count)
+    }
+}*/
+
+/*
+// Test for high score
+var b = 0
+
+for player in players.list {
+    b += 1
+    if playerTwo == player.name {
+        player.addOneWin()
+        print("\(player.name) + \(player.wins)")
+        break
+    }
+    if b == players.list.count && playerTwo != player.name {
+        players.add(player: Player(name: playerTwo!, wins: 1))
+        print(players.list.count)
+    }
+}*/
