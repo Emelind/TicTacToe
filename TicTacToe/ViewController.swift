@@ -36,6 +36,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playerWonLabel: UILabel!
     
+    var cpuPossibilities: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,10 +65,30 @@ class ViewController: UIViewController {
             if game.activePlayer == 1 {
                 sender.setImage(UIImage(named: "cross"), for: UIControl.State())
                 
-                //Changes the activePlayer to playerTwo, and displays the name
                 game.changePlayer()
-                playersTurnLabel.text = playerTwo! + ", it is your turn!"
-            
+                
+                if playerTwo != "CPU" {
+                    playersTurnLabel.text = playerTwo! + ", it is your turn!"
+                }
+                
+                var a = 0
+                
+                if playerTwo == "CPU" && game.activePlayer == 2 {
+                    cpuPossibilities.removeAll()
+                    for i in game.gameState {
+                        a += 1
+                        if i == 0 {
+                            cpuPossibilities.append(a)
+                            // LÄGG TILL OM LISTAN ÄR TOM ...
+                        }
+                    }
+                    let cpuRandomChoice = cpuPossibilities.randomElement()!
+                    game.gameState[cpuRandomChoice - 1] = 2
+                    let cpuChoiceButton = self.view.viewWithTag(cpuRandomChoice) as! UIButton
+                    cpuChoiceButton.setImage(UIImage(named: "circle"), for: UIControl.State())
+                    game.changePlayer()
+                }
+                
             } else {
                 sender.setImage(UIImage(named: "circle"), for: UIControl.State())
                 
