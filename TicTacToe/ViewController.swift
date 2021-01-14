@@ -78,6 +78,7 @@ class ViewController: UIViewController {
                     playerWonLabel.isHidden = false
                     playerWonLabel.text = playerOne! + " won"
                     playAgainButton.isHidden = false
+                    game.gameState = [1, 1, 1, 1, 1, 1, 1, 1, 1]
                     
                     // Adds one to score
                     playerOneScore += 1
@@ -133,6 +134,7 @@ class ViewController: UIViewController {
                             playerWonLabel.isHidden = false
                             playerWonLabel.text = playerTwo! + " won"
                             playAgainButton.isHidden = false
+                            game.gameState = [2, 2, 2, 2, 2, 2, 2, 2, 2]
                             
                             // Adds one to score
                             playerTwoScore += 1
@@ -154,9 +156,9 @@ class ViewController: UIViewController {
                     game.gameIsActive = false
                     playersTurnLabel.isHidden = true
                     playerWonLabel.text = playerTwo! + " won"
-                    
                     playAgainButton.isHidden = false
                     playerWonLabel.isHidden = false
+                    game.gameState = [2, 2, 2, 2, 2, 2, 2, 2, 2]
                     
                     // Adds one to score
                     playerTwoScore += 1
