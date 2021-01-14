@@ -15,38 +15,24 @@ class ViewController: UIViewController {
     // Create object of class Game
     var game = Game()
     
-    // Store name of Player 1
+    // Store names of players (from StartGameViewController)
     var playerOne: String?
-    
-    //Store name of Player 2
     var playerTwo: String?
     
     // Outlet for Players Turn Label
     @IBOutlet weak var playersTurnLabel: UILabel!
     
-    //Outlet for player one
+    //Outlets for players names
     @IBOutlet weak var playerOneLabel: UILabel!
-    
-    //Outlet for player two
     @IBOutlet weak var playerTwoLabel: UILabel!
     
-    //Outlet for player one score
+    //Outlets for players scores
     @IBOutlet weak var playerOneScoreLabel: UILabel!
-    
-    //Outlet for player two score
     @IBOutlet weak var playerTwoScoreLabel: UILabel!
     
-    // Variable for player one score
+    // Variables for players scores
     var playerOneScore = 0
-    
-    // Variable for player two score
     var playerTwoScore = 0
-    
-    // Keeps track of active player, 1 or 2
-    var activePlayer = 1
-    
-    // Variable to check if the game is active
-    //var gameIsActive = true
     
     @IBOutlet weak var playerWonLabel: UILabel!
     
@@ -56,7 +42,6 @@ class ViewController: UIViewController {
         // Displays playerOnes name
         playersTurnLabel.text = playerOne! + ", it is your turn!"
         
-        
         // Displays players names and scores
         playerOneLabel.text = playerOne!
         playerTwoLabel.text = playerTwo!
@@ -65,28 +50,28 @@ class ViewController: UIViewController {
         
     }
     
-    // 9 image views connected to function action
+    // 9 buttons connected to function action
     @IBAction func action(_ sender: UIButton) {
         
         // Checks if the box is empty
         if game.gameState[sender.tag - 1] == 0 && game.gameIsActive == true {
             
             //Changes state of the box from 0 to number of active player
-            game.gameState[sender.tag - 1] = activePlayer
+            game.gameState[sender.tag - 1] = game.activePlayer
             
             //Sets the player's image in the chosen box
-            if activePlayer == 1 {
+            if game.activePlayer == 1 {
                 sender.setImage(UIImage(named: "cross"), for: UIControl.State())
                 
                 //Changes the activePlayer to playerTwo, and displays the name
-                activePlayer = 2
+                game.changePlayer()
                 playersTurnLabel.text = playerTwo! + ", it is your turn!"
             
             } else {
                 sender.setImage(UIImage(named: "circle"), for: UIControl.State())
                 
                 //Changes the activePlayer to playerOne, and displays the name
-                activePlayer = 1
+                game.changePlayer()
                 playersTurnLabel.text = playerOne! + ", it is your turn!"
             }
         }
@@ -191,7 +176,7 @@ class ViewController: UIViewController {
         game.gameIsActive = true
         
         // The activePlayer is set to player 1
-        activePlayer = 1
+        game.activePlayer = 1
         
         playersTurnLabel.isHidden = false
         playersTurnLabel.text = playerOne! + ", it is your turn!"

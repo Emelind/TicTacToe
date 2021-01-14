@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
 class Game {
     
     var gameState: [Int]
     var winningCombinations: [[Int]]
     var gameIsActive: Bool
+    var activePlayer: Int
     
     init() {
         // Keeps track of empty boxes
@@ -23,9 +23,22 @@ class Game {
         
         // Keeps track of if the game is active
         gameIsActive = true
+        
+        // Keeps track of active player
+        activePlayer = 1
     }
     
+    // Resets gameState
     func resetGameState() -> [Int] {
         return [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+    
+    // Changes between the two players
+    func changePlayer() {
+        if activePlayer == 1 {
+            activePlayer = 2
+        } else {
+            activePlayer = 1
+        }
     }
 }
