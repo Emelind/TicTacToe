@@ -79,8 +79,8 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func unwindToStartView(segue: UIStoryboardSegue) {
-        highScoreTableView.reloadData()
-        print(self.players.count)
-        print(players.count)
+//        highScoreTableView.reloadData()
+//        print(self.players.count)
+//        print(players.count)
     }
 }

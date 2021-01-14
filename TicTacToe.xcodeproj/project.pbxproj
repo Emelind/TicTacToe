@@ -20,6 +20,7 @@
 		985ED9382588E43400595F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985ED9362588E43400595F8B /* LaunchScreen.storyboard */; };
 		985ED9432588E43500595F8B /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED9422588E43500595F8B /* TicTacToeTests.swift */; };
 		985ED94E2588E43500595F8B /* TicTacToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ED94D2588E43500595F8B /* TicTacToeUITests.swift */; };
+		9871E7A025B0346800E7BB2B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871E79F25B0346800E7BB2B /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		985ED9492588E43500595F8B /* TicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ED94D2588E43500595F8B /* TicTacToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeUITests.swift; sourceTree = "<group>"; };
 		985ED94F2588E43500595F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9871E79F25B0346800E7BB2B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				98194B7225AB441800B6A37E /* Players.swift */,
 				98194B7725AB4B4000B6A37E /* HighScoreTableViewCell.swift */,
 				98194B7825AB4B4000B6A37E /* HighScoreTableViewCell.xib */,
+				9871E79F25B0346800E7BB2B /* Game.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				985ED92E2588E42E00595F8B /* SceneDelegate.swift in Sources */,
 				98194B6E25AB430B00B6A37E /* Player.swift in Sources */,
 				985B1BA3258B655B0047DC20 /* StartGameViewController.swift in Sources */,
+				9871E7A025B0346800E7BB2B /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
