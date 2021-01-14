@@ -169,23 +169,18 @@ class ViewController: UIViewController {
     // Function for the playAgainButton
     @IBAction func playAgain(_ sender: UIButton) {
         
-        // gameState is changed to initial zeros only
-        game.gameState = game.resetGameState()
+        // Resets gameState, gameIsActive and activePlayer
+        game.resetGame()
         
-        // Game is active again
-        game.gameIsActive = true
-        
-        // The activePlayer is set to player 1
-        game.activePlayer = 1
-        
+        // Displays whose turn it is
         playersTurnLabel.isHidden = false
         playersTurnLabel.text = playerOne! + ", it is your turn!"
         
-        // And the playAgainButton is not visible
+        // And the playAgainButton and playerWonLabel is not visible
         playAgainButton.isHidden = true
         playerWonLabel.isHidden = true
         
-        // The images are removed from the image views to clear the board
+        // The images are removed from the buttons to clear the board
         for i in 1...9 {
             let button = view.viewWithTag(i) as! UIButton
             button.setImage(nil, for: UIControl.State())

@@ -31,6 +31,7 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
     
     // Id of segue stored in variable segueToGame
     let segueToGame = "segueToGame"
+    let segueToGameCPU = "segueToGameCPU"
     
     // Outlet for Player 1 name
     @IBOutlet weak var playerOneTextField: UITextField!
@@ -57,6 +58,12 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    @IBAction func startGameCPU(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: segueToGameCPU, sender: self)
+    }
+    
+    
     // Will run just before the segue is performed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -75,6 +82,17 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
             } else {
                 destinationVC.playerTwo = playerTwoTextField.text
             }
+        }
+        
+        if segue.identifier == segueToGameCPU {
+            let destinationVC = segue.destination as! ViewController
+            
+            if playerOneTextField.text == "" {
+                destinationVC.playerOne = "Player One"
+            } else {
+                destinationVC.playerOne = playerOneTextField.text
+            }
+            destinationVC.playerTwo = "CPU"
         }
     }
     

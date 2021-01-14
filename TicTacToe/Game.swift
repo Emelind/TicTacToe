@@ -28,9 +28,11 @@ class Game {
         activePlayer = 1
     }
     
-    // Resets gameState
-    func resetGameState() -> [Int] {
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    // Resets gameState, gameIsActive and activePlayer
+    func resetGame() {
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameIsActive = true
+        activePlayer = 1
     }
     
     // Changes between the two players
