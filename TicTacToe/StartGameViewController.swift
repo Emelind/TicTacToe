@@ -82,6 +82,8 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
             } else {
                 destinationVC.playerTwo = playerTwoTextField.text
             }
+            destinationVC.playerOneScore = 0
+            destinationVC.playerTwoScore = 0
         }
         
         if segue.identifier == segueToGameCPU {
@@ -93,6 +95,8 @@ class StartGameViewController: UIViewController, UITableViewDataSource {
                 destinationVC.playerOne = playerOneTextField.text
             }
             destinationVC.playerTwo = "CPU"
+            destinationVC.playerOneScore = 0
+            destinationVC.playerTwoScore = 0
         }
     }
     
